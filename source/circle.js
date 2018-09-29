@@ -1,19 +1,21 @@
-var circle = new Object();
-circle.positionx = 10
-circle.velocityx = 30
-circle.positiony =10
-circle.velocityy = 0
-circle.radius = 20
-circle.draw = function(ctx){
+var CIRCLE = function(){
+this.positionx = 10
+this.velocityx = 30
+this.positiony =10
+this.velocityy = 0
+this.radius = 20
+this.fire = false};
+
+CIRCLE.prototype.draw = function(ctx){
 ctx.beginPath();
 ctx.lineWidth=2;
 ctx.arc(this.positionx, this.positiony, this.radius, 0, 2 * Math.PI);
 ctx.stroke();
 };
-circle.step = function(dt){
+CIRCLE.prototype.step = function(dt){
 //x1=x0+ v * dt
-this.positionx = this.positionx + circle.velocityx*dt
-this.positiony = this.positiony + circle.velocityy*dt
+this.positionx = this.positionx + this.velocityx*dt
+this.positiony = this.positiony + this.velocityy*dt
 
 
 

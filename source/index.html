@@ -16,13 +16,16 @@
 
 function init() {
 var c = document.getElementById("gamefield");
-GAME.actors=[circle];
+var player1 = new CIRCLE();
+GAME.actors=[player1];
 GAME.drawengine=DRAW;
 GAME.drawengine.canvas=c;
 GAME.start();
 GAME.controller=CONTROLLER
 GAME.controller.listento(document)
-GAME.controller.player1=circle
+GAME.controller.player1=player1
+GAME.controller.shotprototype=CIRCLE
+
 
 }
 
