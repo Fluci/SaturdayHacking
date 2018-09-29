@@ -6,13 +6,23 @@
 </title>
 <script src="game.js">
 </script>
+<script src="circle.js">
+</script>
+<script src="drawengine.js">
+</script>
+<script src="gamecontroller.js">
+</script>
 <script type="text/javascript">
 
 function init() {
 var c = document.getElementById("gamefield");
-GAME.canvas=c;
+GAME.actors=[circle];
+GAME.drawengine=DRAW;
+GAME.drawengine.canvas=c;
 GAME.start();
-
+GAME.controller=CONTROLLER
+GAME.controller.listento(document)
+GAME.controller.player1=circle
 
 }
 
