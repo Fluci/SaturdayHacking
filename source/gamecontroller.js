@@ -74,25 +74,60 @@ CONTROLLER.playerlogic = function(player){
    player.velocityy = 0
  }
 };
-CONTROLLER.logic = function(actors){
+CONTROLLER.logic = function(actors, pairs){
   if (this.player1.fire) {
     var shot = new this.shotprototype()
     actors.push(shot)
+    shot.type = "shot"
+    shot.lifetime = 100
     shot.velocityx = 600
     shot.velocityy = 0
     this.player1.fire = false
-    shot.positionx = this.player1.positionx
+    shot.positionx = this.player1.positionx+this.player1.radius+shot.radius
     shot.positiony = this.player1.positiony
   }
   if (this.player2.fire) {
     var shot = new this.shotprototype()
     actors.push(shot)
+    shot.type = "shot"
+    shot.lifetime = 100
     shot.velocityx = -600
     shot.velocityy = 0
     this.player2.fire = false
-    shot.positionx = this.player2.positionx
+    shot.positionx = this.player2.positionx-this.player1.radius-shot.radius
     shot.positiony = this.player2.positiony
   }
   this.playerlogic(this.player1)
   this.playerlogic(this.player2)
+  for (var i = 0 ; i<actors.length;++i){
+    if (actors[i].lifetime!==undefined&&actors[i].lifetime--<0){
+      actors.splice(i,1);
+      i--
+      console.log (actors);
+    }
+
+  }
+  for (var i = 0 ; i < pairs.length;++i){
+    var player = null
+    var shot = null
+    if (pairs[i][0].type==="player"){
+      player= pairs[i][0]
+      shot= pairs[i][1]
+    }
+
+      if (pairs[i][1].type==="player"){
+          player= pairs[i][1]
+            shot= pairs[i][0]
+      }
+      if (player===this.player1){
+        alert("PLAYER 1: YOU DIED!")
+      }
+      if (player===this.player2){
+        alert("PLAYER 2: YOU DIED!")
+      }
+      if (player!==null){
+        var j = actors.indexOf(shot);
+        actors.splice(j,1)
+      }
+    }
 };

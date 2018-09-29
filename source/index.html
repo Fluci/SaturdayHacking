@@ -19,9 +19,11 @@
 function init() {
 var c = document.getElementById("gamefield");
 var player1 = new CIRCLE();
+  player1.type = "player"
   player1.positionx = 50
   player1.positiony = 100
 var player2 = new CIRCLE();
+  player2.type = "player"
   player2.positionx = 450;
   player2.positiony = 100
 GAME.actors=[player1,player2];
