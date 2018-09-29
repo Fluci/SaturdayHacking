@@ -34,6 +34,7 @@ GAME.controller.listento(document)
 GAME.controller.player1=player1
 GAME.controller.player2=player2
 GAME.controller.shotprototype=CIRCLE
+GAME.controller.messageField = document.getElementById("msg");
 GAME.physics=PHYSICS
 GAME.start();
 }
@@ -45,5 +46,16 @@ GAME.start();
     <body onload="init()">
 
       <canvas id="gamefield" width="500" height="400" style="border:1px solid #000000;"> </canvas>
+<div id="msg"></div>
+<div id="tipps">
+    Player 1:</br>
+    up/down: w/s</br>
+    fire: space</br>
+    </br>
+    Player 2:</br>
+    up/down: o/l</br>
+    fire: enter
+</div>
+
     </body>
 </html>

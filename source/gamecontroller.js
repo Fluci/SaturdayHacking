@@ -2,6 +2,7 @@ var CONTROLLER = new Object();
 CONTROLLER.player1 = null
 CONTROLLER.player2 = null
 CONTROLLER.shotprototype = null
+CONTROLLER.messageField = null
 CONTROLLER.listento = function(subject){
   var that=this;
   subject.onkeydown = function(event){that.keydown(event)};
@@ -120,14 +121,19 @@ CONTROLLER.logic = function(actors, pairs){
             shot= pairs[i][0]
       }
       if (player===this.player1){
-        alert("PLAYER 1: YOU DIED!")
+        this.messageField.innerHTML = "PLAYER 1: YOU DIED!";
       }
       if (player===this.player2){
-        alert("PLAYER 2: YOU DIED!")
+        this.messageField.innerHTML = "PLAYER 2: YOU DIED!";
+
       }
       if (player!==null){
         var j = actors.indexOf(shot);
         actors.splice(j,1)
+        this.messageField.style.size = "3em"
+        this.messageField.style.fontWeight = "bold";
+        this.messageField.style.color = "red";
+        this.messageField.style.border = "thick solid #FFAA00";
       }
     }
 };
