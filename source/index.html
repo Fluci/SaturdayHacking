@@ -12,21 +12,28 @@
 </script>
 <script src="gamecontroller.js">
 </script>
+<script src="physics.js">
+</script>
 <script type="text/javascript">
 
 function init() {
 var c = document.getElementById("gamefield");
 var player1 = new CIRCLE();
-GAME.actors=[player1];
+  player1.positionx = 50
+  player1.positiony = 100
+var player2 = new CIRCLE();
+  player2.positionx = 450;
+  player2.positiony = 100
+GAME.actors=[player1,player2];
 GAME.drawengine=DRAW;
 GAME.drawengine.canvas=c;
-GAME.start();
 GAME.controller=CONTROLLER
 GAME.controller.listento(document)
 GAME.controller.player1=player1
+GAME.controller.player2=player2
 GAME.controller.shotprototype=CIRCLE
-
-
+GAME.physics=PHYSICS
+GAME.start();
 }
 
 

@@ -4,7 +4,10 @@ this.velocityx = 30
 this.positiony =10
 this.velocityy = 0
 this.radius = 20
-this.fire = false};
+this.fire = false
+this.moveup = false
+this.movedown = false
+};
 
 CIRCLE.prototype.draw = function(ctx){
 ctx.beginPath();
